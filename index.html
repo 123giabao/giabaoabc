@@ -33,11 +33,22 @@
 
     </style>
     <div class="video-container">
-        <video controls autoplay loop>
+        <video id="myVideo" controls autoplay loop>
           <source src="beuiiii.mp4" type="video/mp4">
         </video>
-      </div>
-      
+    </div>
+    <script>
+        // Khi metadata của video được tải, thử vào chế độ toàn màn hình
+        document.getElementById('myVideo').addEventListener('loadedmetadata', function() {
+          if (this.requestFullscreen) {
+            this.requestFullscreen();
+          } else if (this.webkitRequestFullscreen) { /* Safari */
+            this.webkitRequestFullscreen();
+          } else if (this.msRequestFullscreen) { /* IE11 */
+            this.msRequestFullscreen();
+          }
+        });
+        </script>
     <script type='text/javascript'>
         //<![CDATA[
         var pictureSrc ="./hahahahha.png"; //Link ảnh hoa muốn hiển thị trên web
